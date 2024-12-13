@@ -16,13 +16,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      # 安装 ALSA 所需的依赖
-      - name: Install ALSA dependencies
-        run: sudo apt-get update && sudo apt-get install -y libasound2-dev
-
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y libudev-dev libasound2-dev pkg-config
       - name: Build
         run: cargo build --verbose
-
       - name: Run tests
         run: cargo test --verbose
