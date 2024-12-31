@@ -1,4 +1,7 @@
+use bevy::a11y::AccessibilityPlugin;
 use bevy::prelude::*;
+use bevy::time::TimePlugin;
+use bevy::winit::{WakeUp, WinitPlugin};
 
 #[derive(Component)]
 struct Person;
@@ -61,8 +64,12 @@ impl Plugin for HelloPlugin {
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        // .add_plugins(DefaultPlugins)
+        // 下面4个plugin可以实现同样的效果，无需添加整个DefaultPlugins组
+        .add_plugins(TimePlugin)
+        .add_plugins(WindowPlugin::default())
+        .add_plugins(AccessibilityPlugin)
+        .add_plugins(WinitPlugin::<WakeUp>::default()) // 指定泛型类型
         .add_plugins(HelloPlugin)
         .run();
 }
-
