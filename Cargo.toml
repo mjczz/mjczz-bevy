@@ -16,6 +16,10 @@ path = "src/bin/resource.rs"
 name = "move1"
 path = "src/bin/physics_in_fixed_timestep.rs"
 
+[[bin]]
+name = "world"
+path = "src/bin/world.rs"
+
 [workspace]
 resolver = "2" # Important! wgpu/Bevy needs this!
 
