@@ -20,6 +20,10 @@ path = "src/bin/physics_in_fixed_timestep.rs"
 name = "world"
 path = "src/bin/world.rs"
 
+[[bin]]
+name = "events"
+path = "src/bin/events.rs"
+
 [workspace]
 resolver = "2" # Important! wgpu/Bevy needs this!
 
@@ -33,3 +37,5 @@ opt-level = 3
 
 [dependencies]
 bevy = { path = "../bevy" }
+rand = "0.8"
+
